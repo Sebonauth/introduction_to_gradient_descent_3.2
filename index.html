@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Basic Principle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            font-size: 150%;
+        }
+        section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+        h1, h3, h4 {
+            color: #333;
+            margin-top: 20px;
+        }
+        p, li {
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .image-placeholder img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .vocab-section {
+            padding: 20px;
+            background-color: #f0f8ff;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .vocab-section h3 {
+            color: #1e90ff;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .vocab-section h4 {
+            color: #000;
+            font-size: 0.9em;
+            margin-top: 10px;
+            margin-bottom: 8px;
+        }
+        .continue-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            color: #ffffff;
+            background-color: #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Section 1 -->
+    <section id="section1">
+        <h1>The Basic Principle</h1>
+        <p>At its core, gradient descent is an optimization algorithm used to find the minimum of a function. In machine learning, this function is often the <strong>loss function</strong>, which measures how well a model is performing.</p>
+        <div class="continue-button" onclick="showNextSection(2)">Continue</div>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="section2">
+        <p>Just like our blindfolded friend on the hill, we take small steps in the direction that decreases the loss the most.</p>
+        <div class="image-placeholder">
+            <img src="path-to-gradient-descent-graph.jpg" alt="Graph showing a curve with a tangent line pointing downhill, illustrating gradient descent.">
+        </div>
+        <div class="continue-button" onclick="showNextSection(3)">Continue</div>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="section3">
+        <p>Mathematically, this involves computing the gradient (or derivative) of the loss function with respect to the model parameters and updating the parameters in the opposite direction.</p>
+        <div class="vocab-section">
+            <h3>Build Your Vocab</h3>
+            <h4>Gradient</h4>
+            <p>The gradient is a vector that points in the direction of the greatest rate of increase of a function. In the context of gradient descent, we use the negative gradient to find the direction of the greatest rate of decrease.</p>
+        </div>
+        <div class="continue-button" onclick="showNextSection(4)">Continue</div>
+    </section>
+
+    <script>
+        document.getElementById("section1").style.display = "block";
+        document.getElementById("section1").style.opacity = "1";
+
+        function showNextSection(nextSectionId) {
+            const currentButton = event.target;
+            const nextSection = document.getElementById("section" + nextSectionId);
+
+            currentButton.style.display = "none";
+            nextSection.style.display = "block";
+            setTimeout(() => {
+                nextSection.style.opacity = "1";
+            }, 10);
+
+            setTimeout(() => {
+                nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 500);
+        }
+    </script>
+
+</body>
+</html>
